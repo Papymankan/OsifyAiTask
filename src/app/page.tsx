@@ -1,4 +1,5 @@
 import CountriesGrid from "../components/CountriesGrid";
+import Footer from "../components/Footer";
 import NavBar from "../components/NavBar";
 import SearchBox from "../components/SearchBox";
 
@@ -12,6 +13,8 @@ export default function Home() {
 
         <CountriesGrid/>
       </main>
+
+      <Footer/>
     </>
   );
 }
