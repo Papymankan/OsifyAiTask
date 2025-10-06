@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>World Explorer - All Countries</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: {
+                50: "#f0f9ff",
+                100: "#e0f2fe",
+                200: "#bae6fd",
+                300: "#7dd3fc",
+                400: "#38bdf8",
+                500: "#0ea5e9",
+                600: "#0284c7",
+                700: "#0369a1",
+                800: "#075985",
+                900: "#0c4a6e",
+              },
+            },
+            fontFamily: {
+              sans: ["Inter", "system-ui", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .card-hover {
+        transition: all 0.3s ease;
+      }
+      .card-hover:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1),
+          0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      }
+      .search-input:focus {
+        box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.2);
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50 font-sans">
+    <!-- Header Section -->
+    <header class="bg-white shadow-sm sticky top-0 z-10">
+      <div class="container mx-auto px-4 py-4">
+        <div class="flex justify-between items-center">
+          <div class="flex items-center space-x-2">
+            <div
+              class="w-8 h-8 bg-primary-500 rounded-full flex items-center justify-center"
+            >
+              <i class="fas fa-globe-americas text-white"></i>
+            </div>
+            <h1 class="text-xl font-bold text-gray-800">World Explorer</h1>
+          </div>
+          <div class="flex items-center space-x-4">
+            <button
+              class="text-gray-600 hover:text-primary-500 transition-colors"
+            >
+              <i class="far fa-moon"></i>
+            </button>
+            <button
+              class="bg-primary-500 text-white px-4 py-2 rounded-lg hover:bg-primary-600 transition-colors"
+            >
+              Sign In
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+      <!-- Search and Filter Section -->
+      <section class="mb-12">
+        <div
+          class="flex flex-col md:flex-row justify-between items-start md:items-center space-y-4 md:space-y-0"
+        >
+          <div class="relative w-full md:w-96">
+            <div
+              class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"
+            >
+              <i class="fas fa-search text-gray-400"></i>
+            </div>
+            <input
+              type="text"
+              id="search"
+              class="search-input bg-white border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full pl-10 p-3"
+              placeholder="Search for a country..."
+            />
+          </div>
+
+          <div class="relative w-full md:w-56">
+            <select
+              id="region"
+              class="bg-white border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-3 appearance-none"
+            >
+              <option value="" selected>Filter by Region</option>
+              <option value="africa">Africa</option>
+              <option value="americas">Americas</option>
+              <option value="asia">Asia</option>
+              <option value="europe">Europe</option>
+              <option value="oceania">Oceania</option>
+            </select>
+            <div
+              class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"
+            >
+              <i class="fas fa-chevron-down"></i>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Countries Grid -->
+      <section>
+        <h2 class="text-2xl font-bold text-gray-800 mb-6">All Countries</h2>
+
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8"
+        >
+          <!-- Country Card 1 -->
+          <div
+            class="bg-white rounded-xl shadow-md overflow-hidden card-hover cursor-pointer"
+          >
+            <div
+              class="h-40 bg-gradient-to-r from-blue-400 to-indigo-500 flex items-center justify-center"
+            >
+              <div
+                class="w-24 h-16 bg-white rounded flex items-center justify-center shadow-lg"
+              >
+                <span class="text-2xl">🇺🇸</span>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-lg font-bold text-gray-800 mb-3">
+                United States
+              </h3>
+              <div class="space-y-2 text-sm text-gray-600">
+                <div class="flex items-center">
+                  <i class="fas fa-users w-5 text-primary-500"></i>
+                  <span class="ml-2">Population: 331M</span>
+                </div>
+                <div class="flex items-center">
+                  <i class="fas fa-globe-americas w-5 text-primary-500"></i>
+                  <span class="ml-2">Region: Americas</span>
+                </div>
+                <div class="flex items-center">
+                  <i class="fas fa-landmark w-5 text-primary-500"></i>
+                  <span class="ml-2">Capital: Washington, D.C.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Country Card 2 -->
+          <div
+            class="bg-white rounded-xl shadow-md overflow-hidden card-hover cursor-pointer"
+          >
+            <div
+              class="h-40 bg-gradient-to-r from-green-400 to-emerald-500 flex items-center justify-center"
+            >
+              <div
+                class="w-24 h-16 bg-white rounded flex items-center justify-center shadow-lg"
+              >
+                <span class="text-2xl">🇧🇷</span>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-lg font-bold text-gray-800 mb-3">Brazil</h3>
+              <div class="space-y-2 text-sm text-gray-600">
+                <div class="flex items-center">
+                  <i class="fas fa-users w-5 text-primary-500"></i>
+                  <span class="ml-2">Population: 213M</span>
+                </div>
+                <div class="flex items-center">
+                  <i class="fas fa-globe-americas w-5 text-primary-500"></i>
+                  <span class="ml-2">Region: Americas</span>
+                </div>
+                <div class="flex items-center">
+                  <i class="fas fa-landmark w-5 text-primary-500"></i>
+                  <span class="ml-2">Capital: Brasília</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Country Card 3 -->
+          <div
+            class="bg-white rounded-xl shadow-md overflow-hidden card-hover cursor-pointer"
+          >
+            <div
+              class="h-40 bg-gradient-to-r from-yellow-400 to-amber-500 flex items-center justify-center"
+            >
+              <div
+                class="w-24 h-16 bg-white rounded flex items-center justify-center shadow-lg"
+              >
+                <span class="text-2xl">🇯🇵</span>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-lg font-bold text-gray-800 mb-3">Japan</h3>
+              <div class="space-y-2 text-sm text-gray-600">
+                <div class="flex items-center">
+                  <i class="fas fa-users w-5 text-primary-500"></i>
+                  <span class="ml-2">Population: 126M</span>
+                </div>
+                <div class="flex items-center">
+                  <i class="fas fa-globe-americas w-5 text-primary-500"></i>
+                  <span class="ml-2">Region: Asia</span>
+                </div>
+                <div class="flex items-center">
+                  <i class="fas fa-landmark w-5 text-primary-500"></i>
+                  <span class="ml-2">Capital: Tokyo</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Country Card 4 -->
+          <div
+            class="bg-white rounded-xl shadow-md overflow-hidden card-hover cursor-pointer"
+          >
+            <div
+              class="h-40 bg-gradient-to-r from-red-400 to-pink-500 flex items-center justify-center"
+            >
+              <div
+                class="w-24 h-16 bg-white rounded flex items-center justify-center shadow-lg"
+              >
+                <span class="text-2xl">🇫🇷</span>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-lg font-bold text-gray-800 mb-3">France</h3>
+              <div class="space-y-2 text-sm text-gray-600">
+                <div class="flex items-center">
+                  <i class="fas fa-users w-5 text-primary-500"></i>
+                  <span class="ml-2">Population: 67M</span>
+                </div>
+                <div class="flex items-center">
+                  <i class="fas fa-globe-americas w-5 text-primary-500"></i>
+                  <span class="ml-2">Region: Europe</span>
+                </div>
+                <div class="flex items-center">
+                  <i class="fas fa-landmark w-5 text-primary-500"></i>
+                  <span class="ml-2">Capital: Paris</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Country Card 5 -->
+          <div
+            class="bg-white rounded-xl shadow-md overflow-hidden card-hover cursor-pointer"
+          >
+            <div
+              class="h-40 bg-gradient-to-r from-purple-400 to-indigo-500 flex items-center justify-center"
+            >
+              <div
+                class="w-24 h-16 bg-white rounded flex items-center justify-center shadow-lg"
+              >
+                <span class="text-2xl">🇿🇦</span>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-lg font-bold text-gray-800 mb-3">South Africa</h3>
+              <div class="space-y-2 text-sm text-gray-600">
+                <div class="flex items-center">
+                  <i class="fas fa-users w-5 text-primary-500"></i>
+                  <span class="ml-2">Population: 59M</span>
+                </div>
+                <div class="flex items-center">
+                  <i class="fas fa-globe-americas w-5 text-primary-500"></i>
+                  <span class="ml-2">Region: Africa</span>
+                </div>
+                <div class="flex items-center">
+                  <i class="fas fa-landmark w-5 text-primary-500"></i>
+                  <span class="ml-2">Capital: Pretoria</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Country Card 6 -->
+          <div
+            class="bg-white rounded-xl shadow-md overflow-hidden card-hover cursor-pointer"
+          >
+            <div
+              class="h-40 bg-gradient-to-r from-teal-400 to-cyan-500 flex items-center justify-center"
+            >
+              <div
+                class="w-24 h-16 bg-white rounded flex items-center justify-center shadow-lg"
+              >
+                <span class="text-2xl">🇦🇺</span>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-lg font-bold text-gray-800 mb-3">Australia</h3>
+              <div class="space-y-2 text-sm text-gray-600">
+                <div class="flex items-center">
+                  <i class="fas fa-users w-5 text-primary-500"></i>
+                  <span class="ml-2">Population: 25M</span>
+                </div>
+                <div class="flex items-center">
+                  <i class="fas fa-globe-americas w-5 text-primary-500"></i>
+                  <span class="ml-2">Region: Oceania</span>
+                </div>
+                <div class="flex items-center">
+                  <i class="fas fa-landmark w-5 text-primary-500"></i>
+                  <span class="ml-2">Capital: Canberra</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Country Card 7 -->
+          <div
+            class="bg-white rounded-xl shadow-md overflow-hidden card-hover cursor-pointer"
+          >
+            <div
+              class="h-40 bg-gradient-to-r from-orange-400 to-red-500 flex items-center justify-center"
+            >
+              <div
+                class="w-24 h-16 bg-white rounded flex items-center justify-center shadow-lg"
+              >
+                <span class="text-2xl">🇨🇦</span>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-lg font-bold text-gray-800 mb-3">Canada</h3>
+              <div class="space-y-2 text-sm text-gray-600">
+                <div class="flex items-center">
+                  <i class="fas fa-users w-5 text-primary-500"></i>
+                  <span class="ml-2">Population: 38M</span>
+                </div>
+                <div class="flex items-center">
+                  <i class="fas fa-globe-americas w-5 text-primary-500"></i>
+                  <span class="ml-2">Region: Americas</span>
+                </div>
+                <div class="flex items-center">
+                  <i class="fas fa-landmark w-5 text-primary-500"></i>
+                  <span class="ml-2">Capital: Ottawa</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Country Card 8 -->
+          <div
+            class="bg-white rounded-xl shadow-md overflow-hidden card-hover cursor-pointer"
+          >
+            <div
+              class="h-40 bg-gradient-to-r from-blue-500 to-purple-600 flex items-center justify-center"
+            >
+              <div
+                class="w-24 h-16 bg-white rounded flex items-center justify-center shadow-lg"
+              >
+                <span class="text-2xl">🇩🇪</span>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-lg font-bold text-gray-800 mb-3">Germany</h3>
+              <div class="space-y-2 text-sm text-gray-600">
+                <div class="flex items-center">
+                  <i class="fas fa-users w-5 text-primary-500"></i>
+                  <span class="ml-2">Population: 83M</span>
+                </div>
+                <div class="flex items-center">
+                  <i class="fas fa-globe-americas w-5 text-primary-500"></i>
+                  <span class="ml-2">Region: Europe</span>
+                </div>
+                <div class="flex items-center">
+                  <i class="fas fa-landmark w-5 text-primary-500"></i>
+                  <span class="ml-2">Capital: Berlin</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-200 mt-12">
+      <div class="container mx-auto px-4 py-6">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <div class="flex items-center space-x-2 mb-4 md:mb-0">
+            <div
+              class="w-6 h-6 bg-primary-500 rounded-full flex items-center justify-center"
+            >
+              <i class="fas fa-globe-americas text-white text-xs"></i>
+            </div>
+            <span class="text-gray-700 font-medium">World Explorer</span>
+          </div>
+          <div class="text-gray-500 text-sm">
+            &copy; 2023 World Explorer. All rights reserved.
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Simple search functionality (for demo purposes)
+      document.getElementById("search").addEventListener("input", function (e) {
+        const searchTerm = e.target.value.toLowerCase();
+        const countryCards = document.querySelectorAll(".bg-white.rounded-xl");
+
+        countryCards.forEach((card) => {
+          const countryName = card
+            .querySelector("h3")
+            .textContent.toLowerCase();
+          if (countryName.includes(searchTerm)) {
+            card.style.display = "block";
+          } else {
+            card.style.display = "none";
+          }
+        });
+      });
+
+      // Filter by region functionality
+      document
+        .getElementById("region")
+        .addEventListener("change", function (e) {
+          const selectedRegion = e.target.value.toLowerCase();
+          const countryCards = document.querySelectorAll(
+            ".bg-white.rounded-xl"
+          );
+
+          if (selectedRegion === "") {
+            // Show all cards if no region is selected
+            countryCards.forEach((card) => {
+              card.style.display = "block";
+            });
+            return;
+          }
+
+          countryCards.forEach((card) => {
+            const regionElement = card.querySelector(
+              ".flex.items-center:nth-child(2) span"
+            );
+            const region = regionElement.textContent
+              .split(": ")[1]
+              .toLowerCase();
+
+            if (region === selectedRegion) {
+              card.style.display = "block";
+            } else {
+              card.style.display = "none";
+            }
+          });
+        });
+
+      // Add click event to country cards (for demo purposes)
+      document.querySelectorAll(".bg-white.rounded-xl").forEach((card) => {
+        card.addEventListener("click", function () {
+          const countryName = this.querySelector("h3").textContent;
+          alert(
+            `You clicked on ${countryName}! In a real application, this would navigate to the country detail page.`
+          );
+        });
+      });
+    </script>
+  </body>
+</html>
